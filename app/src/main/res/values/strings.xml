@@ -2,7 +2,7 @@
     <string name="app_name">CIS298Assignment2</string>
 
     <string name="convert_header">Convert:</string>
-    <string name="convert_button">Convert</string>
+    <string name="convert_Button">Convert</string>
 
     <string name="rb1_Left">Celsius</string>
     <string name="rb2_Left">Fahrenheit</string>
