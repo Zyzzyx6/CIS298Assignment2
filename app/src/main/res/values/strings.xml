@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CIS298Assignment2</string>
+    <string name="app_name">Temperature Converter</string>
 
     <string name="convert_header">Convert:</string>
     <string name="convert_Button">Convert</string>

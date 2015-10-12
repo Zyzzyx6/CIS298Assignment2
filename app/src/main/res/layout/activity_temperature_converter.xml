@@ -141,7 +141,8 @@
             android:textSize="32dp"
             android:nestedScrollingEnabled="false"
             android:text="output"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal"
+            android:freezesText="true"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -150,7 +151,8 @@
             android:width="340dp"
             android:textSize="20dp"
             android:text="formula"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal"
+            android:freezesText=""/>
     </LinearLayout>
 
 </LinearLayout>

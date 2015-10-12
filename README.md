@@ -1,6 +1,7 @@
 # Assignment 2 - Temperature Converter
 
 ## Author
+Marty Russon
 
 ## Description
 
