@@ -1,0 +1,174 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:orientation="vertical" >
+
+    <TextView android:text="@string/convert_header"
+        android:layout_width="107dp"
+        android:layout_height="38dp"
+        android:textSize="28dp"
+        android:layout_gravity="top|left"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned|numberDecimal"
+        android:ems="10"
+        android:id="@+id/EnterTempText"
+        android:hint="Enter Temp"
+        android:layout_gravity="top|left"/>
+
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="28dp"
+            android:text="From"
+            android:gravity="start"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/radioGroup_Left"
+            android:orientation="horizontal">
+
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb1_Left"
+                    android:textSize="18dp"
+                    android:id="@+id/rb1_left" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb2_Left"
+                    android:textSize="18dp"
+                    android:id="@+id/rb2_left" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb3_Left"
+                    android:textSize="18dp"
+                    android:id="@+id/rb3_left" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb4_Left"
+                    android:textSize="18dp"
+                    android:id="@+id/rb4_left" />
+
+    </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="28dp"
+                android:text="To"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup_Right"
+        android:orientation="horizontal">
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb1_Right"
+                    android:textSize="18dp"
+                    android:id="@+id/rb1_right" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb2_Right"
+                    android:textSize="18dp"
+                    android:id="@+id/rb2_right" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb3_Right"
+                    android:textSize="18dp"
+                    android:id="@+id/rb3_right" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb4_Right"
+                    android:textSize="18dp"
+                    android:id="@+id/rb4_right" />
+    </RadioGroup>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/convert_Button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/convert_Button"
+            android:textSize="22dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tempOutputLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:width="360dp"
+            android:textSize="32dp"
+            android:nestedScrollingEnabled="false"
+            android:text="output"
+            android:gravity="center_horizontal"
+            android:freezesText="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/formula_Output"
+            android:width="340dp"
+            android:textSize="20dp"
+            android:text="formula"
+            android:gravity="center_horizontal"
+            android:freezesText="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+</LinearLayout>
+
+</LinearLayout>

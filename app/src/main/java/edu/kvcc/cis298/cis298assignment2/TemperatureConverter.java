@@ -6,6 +6,7 @@ package edu.kvcc.cis298.cis298assignment2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,20 +25,33 @@ public class TemperatureConverter extends AppCompatActivity {
     RadioGroup radioGroup_Left;
     RadioGroup radioGroup_Right;
 
+    private TextView mResult;
+
+
     Button convert_Button;
+
+    //********Instance State Save Variables & Output**********//
+    private String result;
+    private String answerString;
+    public String outputFormula;
+    private String mOutputFormula;
 
 //*******Formula Scale identifiers*************//
     public String outID;
     public String inID;
 
+    private static final String TAG = "TemperatureConverter";
+
     //**********Create Class************//
     Converter ConvertedTempInstance = new Converter();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "OnCreate() called");
         setContentView(R.layout.activity_temperature_converter);
+
+        //*******Entered value to convert***********//
         enterTempText = (EditText) findViewById(R.id.EnterTempText);
 
         //Initialize Radio Groups and attach click handler
@@ -46,8 +60,24 @@ public class TemperatureConverter extends AppCompatActivity {
         radioGroup_Right = (RadioGroup) findViewById(R.id.radioGroup_Right);
         radioGroup_Right.clearCheck();
 
+        mResult = (TextView) findViewById(R.id.tempOutputLabel);
+        //mOutputFormula =  findViewById(R.id.formula_Output);
+        //********Instance State for rotation************//
+        if (savedInstanceState != null){
+            result = savedInstanceState.getString("theKey", "");
+            mResult.setText(result);
+
+
+            Log.d(TAG, "Oops Rotation Error");
+        }
+
+
+
+        //*********OnClick Listener***********************//
         convert_Button = (Button) findViewById(R.id.convert_Button);
         convert_Button.setOnClickListener(new View.OnClickListener() {
+
+            //*********************OnClick Event********************//
             @Override
             public void onClick(View v) {
 
@@ -153,21 +183,31 @@ public class TemperatureConverter extends AppCompatActivity {
                         }
 
                         Double outputConvertedTemp = ConvertedTempInstance.getAnswer();    // ConvertedTempInstance.getCalc()
-                        String outputFormula = ConvertedTempInstance.getCalc();     //casting to string the returned formula
+                        outputFormula = ConvertedTempInstance.getCalc();     //casting to string the returned formula
                         DecimalFormat decimalFormat = new DecimalFormat("#0.0");    //Casts and formats the returned calculated value
 
                         String outputTemp = decimalFormat.format(outputConvertedTemp); //Assigns converted temp to outputTemp variable
 
-                        TextView result = (TextView) findViewById(R.id.tempOutputLabel);  //gets TextView id info for output label of answer
                         TextView formula = (TextView) findViewById(R.id.formula_Output);  //gets TextView id info for output of formula
-
-                        result.setText(mInputTemp + inID + " = " + outputTemp + outID); //outputs input number and answer with scale formatting values
+                        answerString = mInputTemp + inID + " = " + outputTemp + outID;
+                        mResult.setText(answerString); //outputs input number and answer with scale formatting values
+                       // OutputFormula.setText(outputFormula);
                         formula.setText(outputFormula);  //outputs formula used for calculation
                     }
                 }
             }
 
         });
+
+    }
+
+    @Override
+    protected  void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState");
+
+        outState.putString("theKey", answerString);
+        outState.putString("theKey", outputFormula);
 
     }
 
