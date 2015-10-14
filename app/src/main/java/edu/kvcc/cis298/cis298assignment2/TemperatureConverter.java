@@ -25,16 +25,16 @@ public class TemperatureConverter extends AppCompatActivity {
     RadioGroup radioGroup_Left;
     RadioGroup radioGroup_Right;
 
-    private TextView mResult;
+    public TextView mResult;
 
 
     Button convert_Button;
 
     //********Instance State Save Variables & Output**********//
-    private String result;
+
     private String answerString;
     public String outputFormula;
-    private String mOutputFormula;
+    private TextView mOutputFormula;
 
 //*******Formula Scale identifiers*************//
     public String outID;
@@ -62,12 +62,14 @@ public class TemperatureConverter extends AppCompatActivity {
 
         mResult = (TextView) findViewById(R.id.tempOutputLabel);
         //mOutputFormula =  findViewById(R.id.formula_Output);
+        mOutputFormula = (TextView) findViewById(R.id.formula_Output);
         //********Instance State for rotation************//
         if (savedInstanceState != null){
-            result = savedInstanceState.getString("theKey", "");
-            mResult.setText(result);
+            answerString = savedInstanceState.getString("theKey", "");
+            mResult.setText(answerString);
 
-
+            outputFormula = savedInstanceState.getString("secondKey", "");
+            mOutputFormula.setText(outputFormula);
             Log.d(TAG, "Oops Rotation Error");
         }
 
@@ -118,7 +120,7 @@ public class TemperatureConverter extends AppCompatActivity {
                                     ConvertedTempInstance = new Converter("c2k", mInputTemp);  //calls converter class with arguments
                                     outID = "°K"; //Variable for output scale identifier for Kelvin
                                     break;
-                                case "Rankin":
+                                case "Rankine":
                                     ConvertedTempInstance = new Converter("c2r", mInputTemp);  //calls converter class with arguments
                                     outID = "°R"; //Variable for output scale identifier for Rankin
                                     break;
@@ -137,7 +139,7 @@ public class TemperatureConverter extends AppCompatActivity {
                                         ConvertedTempInstance = new Converter("f2k", mInputTemp);  //calls converter class with arguments
                                         outID = "°K"; //Variable for output scale identifier for Kelvin
                                         break;
-                                    case "Rankin":
+                                    case "Rankine":
                                         ConvertedTempInstance = new Converter("f2r", mInputTemp);  //calls converter class with arguments
                                         outID = "°R";  //Variable for output scale identifier for Rankin
                                         break;
@@ -154,7 +156,7 @@ public class TemperatureConverter extends AppCompatActivity {
                                             ConvertedTempInstance = new Converter("k2f", mInputTemp);
                                             outID = "\u2109";  //Unicode Variable for output scale identifier for Fahrenheit
                                             break;
-                                        case "Rankin":
+                                        case "Rankine":
                                             ConvertedTempInstance = new Converter("k2r", mInputTemp);
                                             outID = "°R";  //Variable for output scale identifier for Rankin
                                             break;
@@ -191,7 +193,7 @@ public class TemperatureConverter extends AppCompatActivity {
                         TextView formula = (TextView) findViewById(R.id.formula_Output);  //gets TextView id info for output of formula
                         answerString = mInputTemp + inID + " = " + outputTemp + outID;
                         mResult.setText(answerString); //outputs input number and answer with scale formatting values
-                       // OutputFormula.setText(outputFormula);
+
                         formula.setText(outputFormula);  //outputs formula used for calculation
                     }
                 }
@@ -204,11 +206,11 @@ public class TemperatureConverter extends AppCompatActivity {
     @Override
     protected  void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.d(TAG, "onSaveInstanceState");
+
 
         outState.putString("theKey", answerString);
-        outState.putString("theKey", outputFormula);
-
+        outState.putString("secondKey", outputFormula);
+       Log.d(TAG, "onSaveInstanceState");
     }
 
 
